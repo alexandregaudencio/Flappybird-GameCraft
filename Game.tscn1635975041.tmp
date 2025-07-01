@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://cf18xd0j4qbtp"]
+
+[ext_resource type="PackedScene" uid="uid://dr38nyb6ubmbn" path="res://passaro.tscn" id="1_wbfu4"]
+[ext_resource type="Script" uid="uid://b2ve2i32gs1pw" path="res://passaro.gd" id="2_xkndl"]
+[ext_resource type="PackedScene" uid="uid://odpnmh65g5b0" path="res://cano.tscn" id="3_sb48q"]
+[ext_resource type="Script" uid="uid://dpjjvr037ofat" path="res://cano.gd" id="4_t88pq"]
+[ext_resource type="Script" uid="uid://ceof1kyyk2kd0" path="res://gerador_cano.gd" id="5_t88pq"]
+
+[node name="Game" type="Node2D"]
+
+[node name="Passaro" parent="." instance=ExtResource("1_wbfu4")]
+gravity_space_override = 1
+gravity_point = true
+gravity_point_unit_distance = 1.878
+linear_damp_space_override = 1
+angular_damp_space_override = 1
+script = ExtResource("2_xkndl")
+gravityY = 15.0
+
+[node name="Cano" parent="." instance=ExtResource("3_sb48q")]
+position = Vector2(267, 278)
+script = ExtResource("4_t88pq")
+
+[node name="GeradorCano" type="Node2D" parent="."]
+script = ExtResource("5_t88pq")
+cano = ExtResource("3_sb48q")

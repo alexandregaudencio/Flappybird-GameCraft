@@ -1,0 +1,95 @@
+[gd_scene load_steps=15 format=3 uid="uid://dr38nyb6ubmbn"]
+
+[ext_resource type="Script" uid="uid://b2ve2i32gs1pw" path="res://passaro.gd" id="1_qkkor"]
+[ext_resource type="Texture2D" uid="uid://dxsfo4go6i0wi" path="res://Art/bluebird-downflap.png" id="1_qnews"]
+[ext_resource type="AudioStream" uid="uid://c3ivishkisjtq" path="res://audio/swoosh.ogg" id="2_dxay5"]
+[ext_resource type="Texture2D" uid="uid://b3t4iciik7mrr" path="res://Art/bluebird-midflap.png" id="2_qkkor"]
+[ext_resource type="Texture2D" uid="uid://dlon34vmtv6jn" path="res://Art/bluebird-upflap.png" id="3_vbtvs"]
+[ext_resource type="AudioStream" uid="uid://chibn8fx15axf" path="res://audio/hit.ogg" id="3_yy7mi"]
+[ext_resource type="Texture2D" uid="uid://di0nsiim0ga45" path="res://Art/chifres.png" id="4_yy7mi"]
+[ext_resource type="Texture2D" uid="uid://rgu7txluhq7v" path="res://Art/gorro2.png" id="9_n5skl"]
+[ext_resource type="Texture2D" uid="uid://b0xu1yrbigsfs" path="res://Art/gorro3.png" id="10_8vi40"]
+[ext_resource type="Texture2D" uid="uid://blxkwymi5py5l" path="res://Art/gorro4.png" id="11_qsu3d"]
+[ext_resource type="Texture2D" uid="uid://df2uq8lmiw1hm" path="res://Art/gorro5.png" id="12_xmy4d"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_r0x5m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_qnews")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_qkkor")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_vbtvs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_qnews")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_qkkor")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_vbtvs")
+}],
+"loop": false,
+"name": &"voo",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6ubv3"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tcwox"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_n5skl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_8vi40")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_qsu3d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_xmy4d")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}]
+
+[node name="Passaro" type="Area2D"]
+texture_filter = 1
+collision_mask = 2
+script = ExtResource("1_qkkor")
+audioPulo = ExtResource("2_dxay5")
+audioImpacto = ExtResource("3_yy7mi")
+
+[node name="Chifres2" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(14, -15)
+texture = ExtResource("4_yy7mi")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_r0x5m")
+animation = &"voo"
+frame = 2
+frame_progress = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_6ubv3")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+position = Vector2(-9, -13)
+rotation = -0.361097
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_tcwox")
+autoplay = "default"
+frame_progress = 0.84378
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
