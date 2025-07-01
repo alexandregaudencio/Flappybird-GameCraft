@@ -91,7 +91,7 @@ var trocarDia = 12
 var intervaloEscurecimento= 3
 func TentarEscurecer(canos):
 	var éDia = fundo.texture == fundoDia
-	if canos < 12: return
+	if canos < trocarDia: return
 	if canos % trocarDia == 0:
 		if fundo.texture == fundoDia:
 			fundo.texture = fundoNoite

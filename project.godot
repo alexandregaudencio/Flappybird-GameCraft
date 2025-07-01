@@ -23,7 +23,6 @@ GameManager="*res://gameManager.gd"
 [display]
 
 window/size/viewport_width=1148
-window/stretch/mode="viewport"
 
 [input]
 

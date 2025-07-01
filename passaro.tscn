@@ -90,6 +90,6 @@ rotation = -0.361097
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_tcwox")
 autoplay = "default"
-frame_progress = 0.758455
+frame_progress = 0.83548
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
