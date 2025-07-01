@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cf18xd0j4qbtp"]
+[gd_scene load_steps=19 format=3 uid="uid://cf18xd0j4qbtp"]
 
 [ext_resource type="Script" uid="uid://cy0nsvt0koqrx" path="res://gameManager.gd" id="1_3mrqo"]
 [ext_resource type="PackedScene" uid="uid://dr38nyb6ubmbn" path="res://passaro.tscn" id="1_wbfu4"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://6utnnc4mk6e0" path="res://Art/background-day.png" id="4_sb48q"]
 [ext_resource type="Texture2D" uid="uid://doy03try4wtt8" path="res://Art/base.png" id="5_r0x5m"]
 [ext_resource type="Script" uid="uid://ceof1kyyk2kd0" path="res://gerador_cano.gd" id="5_t88pq"]
+[ext_resource type="PackedScene" uid="uid://dwxaqjd2a2c5d" path="res://cano_especial.tscn" id="5_yyih5"]
 [ext_resource type="FontFile" uid="uid://cngfsede8vb85" path="res://flappy-font.ttf" id="6_r0x5m"]
 [ext_resource type="Texture2D" uid="uid://ctdu6cxqhslp2" path="res://Art/gameover.png" id="8_joorw"]
 [ext_resource type="Texture2D" uid="uid://dctvjtrm01hd1" path="res://Art/message.png" id="9_2vekm"]
@@ -79,9 +80,13 @@ position = Vector2(852, 186)
 scale = Vector2(2, 2)
 texture = ExtResource("4_sb48q")
 
+[node name="Cano especial" parent="." instance=ExtResource("5_yyih5")]
+position = Vector2(667.5, 695)
+
 [node name="GeradorCano" type="Node2D" parent="." node_paths=PackedStringArray("textoCanos")]
 script = ExtResource("5_t88pq")
 cano = ExtResource("3_sb48q")
+canoEspecial = ExtResource("5_yyih5")
 textoCanos = NodePath("../CanvasLayer/HUD/pontuacao")
 
 [node name="Cano" parent="GeradorCano" instance=ExtResource("3_sb48q")]

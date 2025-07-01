@@ -1,6 +1,7 @@
 extends Node2D
 
 @export var cano: PackedScene
+@export var canoEspecial: PackedScene
 @export var tempoCriacao = 2
 var tempoDecorrido = 0
 var canos:int = -1
@@ -16,6 +17,10 @@ func _process(delta: float) -> void:
 	
 func criarCano():
 	var canoCriado = cano.instantiate()
+	var rand: int = randf_range(2,5)
+	if canos > 5 && canos % rand == 0:
+		canoCriado = canoEspecial.instantiate()
+		
 	add_child(canoCriado)
 	canos += 1
 	textoCanos.text = str(canos)

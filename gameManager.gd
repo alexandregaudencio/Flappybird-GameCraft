@@ -40,6 +40,7 @@ func SetState(newState):
 func _on_state_change(newState: Variant) -> void:
 	match newState:
 		0:
+			fundo.texture = fundoDia
 			LoadHighscore()
 			Engine.time_scale = 0
 			gameoverControl.visible = false
@@ -86,10 +87,11 @@ func Acelerar():
 	if state == 1:
 		Engine.time_scale += 0.0005
 
-var trocarDia = 10
+var trocarDia = 12
 var intervaloEscurecimento= 3
 func TentarEscurecer(canos):
 	var éDia = fundo.texture == fundoDia
+	if canos < 12: return
 	if canos % trocarDia == 0:
 		if fundo.texture == fundoDia:
 			fundo.texture = fundoNoite
@@ -98,6 +100,8 @@ func TentarEscurecer(canos):
 		
 	if éDia == false && canos % intervaloEscurecimento == 0 :
 		$AnimationPlayer.play("escurecer")
+
+
 
 var  canosInversao = 28
 var canosSemInversao = 10
