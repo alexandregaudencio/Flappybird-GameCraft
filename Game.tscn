@@ -80,9 +80,6 @@ position = Vector2(852, 186)
 scale = Vector2(2, 2)
 texture = ExtResource("4_sb48q")
 
-[node name="Cano especial" parent="." instance=ExtResource("5_yyih5")]
-position = Vector2(667.5, 695)
-
 [node name="GeradorCano" type="Node2D" parent="." node_paths=PackedStringArray("textoCanos")]
 script = ExtResource("5_t88pq")
 cano = ExtResource("3_sb48q")
@@ -92,6 +89,9 @@ textoCanos = NodePath("../CanvasLayer/HUD/pontuacao")
 [node name="Cano" parent="GeradorCano" instance=ExtResource("3_sb48q")]
 texture_filter = 1
 position = Vector2(267, 278)
+
+[node name="Cano especial" parent="GeradorCano" instance=ExtResource("5_yyih5")]
+position = Vector2(667.5, 695)
 
 [node name="chaoParallax" type="Parallax2D" parent="."]
 texture_filter = 1
